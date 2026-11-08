@@ -142,7 +142,7 @@
             btnMenu.ForeColor = Color.WhiteSmoke;
             btnMenu.Location = new Point(81, 170);
             btnMenu.Name = "btnMenu";
-            btnMenu.Size = new Size(124, 33);
+            btnMenu.Size = new Size(109, 33);
             btnMenu.TabIndex = 7;
             btnMenu.Text = "Menu";
             btnMenu.UseVisualStyleBackColor = true;
@@ -166,7 +166,7 @@
             btnInventory.ForeColor = Color.WhiteSmoke;
             btnInventory.Location = new Point(107, 209);
             btnInventory.Name = "btnInventory";
-            btnInventory.Size = new Size(98, 33);
+            btnInventory.Size = new Size(83, 33);
             btnInventory.TabIndex = 9;
             btnInventory.Text = "Inventory";
             btnInventory.UseVisualStyleBackColor = true;
