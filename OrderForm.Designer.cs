@@ -46,6 +46,9 @@
             label1 = new Label();
             label2 = new Label();
             label3 = new Label();
+            cboOrderType = new ComboBox();
+            txtCustomer = new TextBox();
+            label4 = new Label();
             ((System.ComponentModel.ISupportInitialize)dgvMenu).BeginInit();
             ((System.ComponentModel.ISupportInitialize)nudQty).BeginInit();
             ((System.ComponentModel.ISupportInitialize)dgvCart).BeginInit();
@@ -94,7 +97,7 @@
             // 
             // btnAdd
             // 
-            btnAdd.BackColor = Color.FromArgb(121, 85, 72);
+            btnAdd.BackColor = Color.FromArgb(217, 179, 130);
             btnAdd.FlatStyle = FlatStyle.Flat;
             btnAdd.Location = new Point(43, 365);
             btnAdd.Name = "btnAdd";
@@ -234,12 +237,40 @@
             label3.TabIndex = 17;
             label3.Text = "Cash received";
             // 
+            // cboOrderType
+            // 
+            cboOrderType.DropDownStyle = ComboBoxStyle.DropDownList;
+            cboOrderType.FormattingEnabled = true;
+            cboOrderType.Location = new Point(886, 451);
+            cboOrderType.Name = "cboOrderType";
+            cboOrderType.Size = new Size(121, 25);
+            cboOrderType.TabIndex = 18;
+            // 
+            // txtCustomer
+            // 
+            txtCustomer.Location = new Point(907, 420);
+            txtCustomer.Name = "txtCustomer";
+            txtCustomer.Size = new Size(100, 25);
+            txtCustomer.TabIndex = 19;
+            // 
+            // label4
+            // 
+            label4.AutoSize = true;
+            label4.Location = new Point(789, 423);
+            label4.Name = "label4";
+            label4.Size = new Size(112, 19);
+            label4.TabIndex = 20;
+            label4.Text = "Customer / Table";
+            // 
             // OrderForm
             // 
             AutoScaleDimensions = new SizeF(7F, 17F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(121, 85, 72);
             ClientSize = new Size(1084, 692);
+            Controls.Add(label4);
+            Controls.Add(txtCustomer);
+            Controls.Add(cboOrderType);
             Controls.Add(label3);
             Controls.Add(label2);
             Controls.Add(label1);
@@ -291,7 +322,8 @@
         private Label label1;
         private Label label2;
         private Label label3;
-        private PictureBox pictureBox1;
-        private PictureBox pictureBox2;
+        private ComboBox cboOrderType;
+        private TextBox txtCustomer;
+        private Label label4;
     }
 }

@@ -4,7 +4,8 @@ namespace CoffeeManagementSystem;
 
 public static class OrderService
 {
-    public static int SaveOrder(List<CartLine> cart, decimal discount, string paymentMethod)
+    public static int SaveOrder(List<CartLine> cart, decimal discount, string paymentMethod,
+                            string orderType = "", string customer = "")
     {
         decimal subtotal = cart.Sum(l => l.LineTotal);
         decimal total = PriceCalculator.Total(subtotal, discount);
@@ -16,13 +17,14 @@ public static class OrderService
         {
             int orderId;
             using (var cmd = new OleDbCommand(
-                "INSERT INTO Orders (OrderDate, UserID, Subtotal, Discount, TotalAmount, PaymentMethod, OrderStatus) VALUES (?, ?, ?, ?, ?, ?, 'Completed')",
-                conn, tx))
+    "INSERT INTO Orders (OrderDate, UserID, Subtotal, Discount, TotalAmount, PaymentMethod, OrderStatus, OrderType, CustomerName) " +
+    "VALUES (?, ?, ?, ?, ?, ?, 'Completed', ?, ?)", conn, tx))
             {
                 cmd.Parameters.AddRange(new[]
                 {
-                    P(DateTime.Now), P(Session.UserId), P(subtotal), P(discount), P(total), P(paymentMethod)
-                });
+        P(DateTime.Now), P(Session.UserId), P(subtotal), P(discount), P(total),
+        P(paymentMethod), P(orderType), P(customer)
+    });
                 cmd.ExecuteNonQuery();
             }
 

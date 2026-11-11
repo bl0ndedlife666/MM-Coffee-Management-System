@@ -9,6 +9,7 @@ static class Program
         try
         {
             DbSetup.EnsureCreated();
+            DbSetup.EnsureColumns();
             DbSetup.SeedIfEmpty();
         }
         catch (Exception ex)

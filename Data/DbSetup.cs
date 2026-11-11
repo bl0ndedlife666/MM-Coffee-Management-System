@@ -76,4 +76,25 @@ public static class DbSetup
             ExecuteNonQuery("INSERT INTO Recipes (ItemID, IngredientID, QuantityUsed) VALUES (?, ?, ?)",
                 P(r.Item), P(r.Ing), P(r.Qty));
     }
+
+    public static void EnsureColumns()
+    {
+        using var conn = new OleDbConnection(ConnectionString);
+        conn.Open();
+
+        var cols = conn.GetSchema("Columns", new string?[] { null, null, "Orders", null })
+            .AsEnumerable()
+            .Select(r => r["COLUMN_NAME"].ToString()!)
+            .ToHashSet(StringComparer.OrdinalIgnoreCase);
+
+        void Add(string name, string definition)
+        {
+            if (cols.Contains(name)) return;
+            using var cmd = new OleDbCommand("ALTER TABLE Orders ADD COLUMN " + definition, conn);
+            cmd.ExecuteNonQuery();
+        }
+
+        Add("OrderType", "OrderType TEXT(20)");
+        Add("CustomerName", "CustomerName TEXT(60)");
+    }
 }

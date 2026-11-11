@@ -34,6 +34,8 @@ public partial class OrderForm : Form
         cboSize.SelectedIndex = 0;
         cboPayment.Items.AddRange(new object[] { "Cash", "Card", "E-Wallet" });
         cboPayment.SelectedIndex = 0;
+        cboOrderType.Items.AddRange(new object[] { "Dine-in", "Take-out" });
+        cboOrderType.SelectedIndex = 0;
 
         cboCategory.DisplayMember = "CategoryName";
         cboCategory.ValueMember = "CategoryID";
@@ -160,19 +162,20 @@ public partial class OrderForm : Form
         }
 
         try
-        {
-            int orderId = OrderService.SaveOrder(_cart.ToList(), discount, cboPayment.Text);
-            BuildReceipt(orderId, subtotal, discount, total);
-            ShowReceipt();
-            _cart.Clear();
-            txtDiscount.Text = "0";
-            txtCash.Clear();
-        }
-        catch (Exception ex)
-        {
-            MessageBox.Show("Could not save the order: " + ex.Message, "Error",
-                MessageBoxButtons.OK, MessageBoxIcon.Error);
-        }
+{
+    int orderId = OrderService.SaveOrder(_cart.ToList(), discount, cboPayment.Text,
+        cboOrderType.Text, txtCustomer.Text.Trim());
+    ReceiptPrinter.Show(orderId);
+    _cart.Clear();
+    txtDiscount.Text = "0";
+    txtCash.Clear();
+    txtCustomer.Clear();
+}
+catch (Exception ex)
+{
+    MessageBox.Show("Could not save the order: " + ex.Message, "Error",
+        MessageBoxButtons.OK, MessageBoxIcon.Error);
+}
     }
 
     private void BuildReceipt(int orderId, decimal subtotal, decimal discount, decimal total)

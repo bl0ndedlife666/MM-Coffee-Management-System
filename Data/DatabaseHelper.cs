@@ -2,7 +2,7 @@
 
 public static class DatabaseHelper
 {
-    private static string? _dbPath;
+    public static string? _dbPath;
 
     // The live database lives outside the build folder so rebuilds never erase it.
     // The CoffeeDB.accdb in the project is only the starting template.

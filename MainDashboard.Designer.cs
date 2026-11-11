@@ -54,6 +54,17 @@
             label3 = new Label();
             dgvToday = new DataGridView();
             btnVoid = new Button();
+            pnlSales = new Panel();
+            lblKpiSales = new Label();
+            label4 = new Label();
+            pnlOrders = new Panel();
+            lblKpiOrders = new Label();
+            label5 = new Label();
+            pnlLow = new Panel();
+            lblKpiLow = new Label();
+            label6 = new Label();
+            btnHistory = new Button();
+            btnBackup = new Button();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox3).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox4).BeginInit();
@@ -65,6 +76,9 @@
             ((System.ComponentModel.ISupportInitialize)pictureBox10).BeginInit();
             ((System.ComponentModel.ISupportInitialize)dgvLowStock).BeginInit();
             ((System.ComponentModel.ISupportInitialize)dgvToday).BeginInit();
+            pnlSales.SuspendLayout();
+            pnlOrders.SuspendLayout();
+            pnlLow.SuspendLayout();
             SuspendLayout();
             // 
             // lblWelcome
@@ -140,9 +154,9 @@
             btnMenu.FlatStyle = FlatStyle.Flat;
             btnMenu.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnMenu.ForeColor = Color.WhiteSmoke;
-            btnMenu.Location = new Point(81, 170);
+            btnMenu.Location = new Point(113, 170);
             btnMenu.Name = "btnMenu";
-            btnMenu.Size = new Size(109, 33);
+            btnMenu.Size = new Size(91, 33);
             btnMenu.TabIndex = 7;
             btnMenu.Text = "Menu";
             btnMenu.UseVisualStyleBackColor = true;
@@ -164,9 +178,9 @@
             btnInventory.FlatStyle = FlatStyle.Flat;
             btnInventory.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnInventory.ForeColor = Color.WhiteSmoke;
-            btnInventory.Location = new Point(107, 209);
+            btnInventory.Location = new Point(110, 209);
             btnInventory.Name = "btnInventory";
-            btnInventory.Size = new Size(83, 33);
+            btnInventory.Size = new Size(93, 33);
             btnInventory.TabIndex = 9;
             btnInventory.Text = "Inventory";
             btnInventory.UseVisualStyleBackColor = true;
@@ -177,9 +191,9 @@
             btnSuppliers.FlatStyle = FlatStyle.Flat;
             btnSuppliers.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnSuppliers.ForeColor = Color.WhiteSmoke;
-            btnSuppliers.Location = new Point(99, 248);
+            btnSuppliers.Location = new Point(113, 248);
             btnSuppliers.Name = "btnSuppliers";
-            btnSuppliers.Size = new Size(106, 33);
+            btnSuppliers.Size = new Size(90, 33);
             btnSuppliers.TabIndex = 10;
             btnSuppliers.Text = "Suppliers";
             btnSuppliers.UseVisualStyleBackColor = true;
@@ -190,9 +204,9 @@
             btnStaff.FlatStyle = FlatStyle.Flat;
             btnStaff.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnStaff.ForeColor = Color.WhiteSmoke;
-            btnStaff.Location = new Point(81, 287);
+            btnStaff.Location = new Point(113, 287);
             btnStaff.Name = "btnStaff";
-            btnStaff.Size = new Size(109, 33);
+            btnStaff.Size = new Size(60, 33);
             btnStaff.TabIndex = 11;
             btnStaff.Text = "Staff";
             btnStaff.UseVisualStyleBackColor = true;
@@ -203,9 +217,9 @@
             btnReports.FlatStyle = FlatStyle.Flat;
             btnReports.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnReports.ForeColor = Color.WhiteSmoke;
-            btnReports.Location = new Point(81, 326);
+            btnReports.Location = new Point(113, 326);
             btnReports.Name = "btnReports";
-            btnReports.Size = new Size(124, 33);
+            btnReports.Size = new Size(81, 33);
             btnReports.TabIndex = 12;
             btnReports.Text = "Reports";
             btnReports.UseVisualStyleBackColor = true;
@@ -216,9 +230,9 @@
             btnAnalytics.FlatStyle = FlatStyle.Flat;
             btnAnalytics.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnAnalytics.ForeColor = Color.WhiteSmoke;
-            btnAnalytics.Location = new Point(96, 365);
+            btnAnalytics.Location = new Point(110, 365);
             btnAnalytics.Name = "btnAnalytics";
-            btnAnalytics.Size = new Size(109, 33);
+            btnAnalytics.Size = new Size(88, 33);
             btnAnalytics.TabIndex = 13;
             btnAnalytics.Text = "Analytics";
             btnAnalytics.UseVisualStyleBackColor = true;
@@ -229,9 +243,9 @@
             btnLogout.FlatStyle = FlatStyle.Flat;
             btnLogout.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnLogout.ForeColor = Color.WhiteSmoke;
-            btnLogout.Location = new Point(81, 426);
+            btnLogout.Location = new Point(110, 426);
             btnLogout.Name = "btnLogout";
-            btnLogout.Size = new Size(124, 33);
+            btnLogout.Size = new Size(82, 33);
             btnLogout.TabIndex = 14;
             btnLogout.Text = "Logout";
             btnLogout.UseVisualStyleBackColor = true;
@@ -322,6 +336,7 @@
             dgvLowStock.Location = new Point(64, 522);
             dgvLowStock.Name = "dgvLowStock";
             dgvLowStock.ReadOnly = true;
+            dgvLowStock.RowHeadersVisible = false;
             dgvLowStock.Size = new Size(416, 133);
             dgvLowStock.TabIndex = 22;
             // 
@@ -345,29 +360,158 @@
             dgvToday.Location = new Point(64, 695);
             dgvToday.Name = "dgvToday";
             dgvToday.ReadOnly = true;
+            dgvToday.RowHeadersVisible = false;
             dgvToday.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dgvToday.Size = new Size(416, 133);
             dgvToday.TabIndex = 24;
             // 
             // btnVoid
             // 
+            btnVoid.BackColor = Color.FromArgb(192, 57, 43);
             btnVoid.FlatAppearance.BorderSize = 0;
             btnVoid.FlatStyle = FlatStyle.Flat;
             btnVoid.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btnVoid.ForeColor = Color.FromArgb(217, 179, 130);
+            btnVoid.ForeColor = Color.White;
             btnVoid.Location = new Point(507, 795);
             btnVoid.Name = "btnVoid";
-            btnVoid.Size = new Size(201, 33);
+            btnVoid.Size = new Size(201, 36);
             btnVoid.TabIndex = 25;
             btnVoid.Text = "Void selected order";
-            btnVoid.UseVisualStyleBackColor = true;
+            btnVoid.UseVisualStyleBackColor = false;
+            // 
+            // pnlSales
+            // 
+            pnlSales.BackColor = Color.FromArgb(70, 45, 35);
+            pnlSales.Controls.Add(lblKpiSales);
+            pnlSales.Controls.Add(label4);
+            pnlSales.Location = new Point(468, 92);
+            pnlSales.Name = "pnlSales";
+            pnlSales.Size = new Size(280, 100);
+            pnlSales.TabIndex = 26;
+            // 
+            // lblKpiSales
+            // 
+            lblKpiSales.AutoSize = true;
+            lblKpiSales.Font = new Font("Segoe UI", 24F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblKpiSales.ForeColor = Color.White;
+            lblKpiSales.Location = new Point(15, 38);
+            lblKpiSales.Name = "lblKpiSales";
+            lblKpiSales.Size = new Size(83, 45);
+            lblKpiSales.TabIndex = 30;
+            lblKpiSales.Text = "0.00";
+            // 
+            // label4
+            // 
+            label4.AutoSize = true;
+            label4.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label4.ForeColor = Color.Tan;
+            label4.Location = new Point(15, 12);
+            label4.Name = "label4";
+            label4.Size = new Size(94, 15);
+            label4.TabIndex = 29;
+            label4.Text = "TODAY'S SALES";
+            // 
+            // pnlOrders
+            // 
+            pnlOrders.BackColor = Color.FromArgb(70, 45, 35);
+            pnlOrders.Controls.Add(lblKpiOrders);
+            pnlOrders.Controls.Add(label5);
+            pnlOrders.Location = new Point(468, 239);
+            pnlOrders.Name = "pnlOrders";
+            pnlOrders.Size = new Size(280, 100);
+            pnlOrders.TabIndex = 27;
+            // 
+            // lblKpiOrders
+            // 
+            lblKpiOrders.AutoSize = true;
+            lblKpiOrders.Font = new Font("Segoe UI", 24F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblKpiOrders.ForeColor = Color.White;
+            lblKpiOrders.Location = new Point(15, 38);
+            lblKpiOrders.Name = "lblKpiOrders";
+            lblKpiOrders.Size = new Size(38, 45);
+            lblKpiOrders.TabIndex = 31;
+            lblKpiOrders.Text = "0";
+            // 
+            // label5
+            // 
+            label5.AutoSize = true;
+            label5.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label5.ForeColor = Color.Tan;
+            label5.Location = new Point(15, 12);
+            label5.Name = "label5";
+            label5.Size = new Size(96, 15);
+            label5.TabIndex = 30;
+            label5.Text = "ORDERS TODAY";
+            // 
+            // pnlLow
+            // 
+            pnlLow.BackColor = Color.FromArgb(70, 45, 35);
+            pnlLow.Controls.Add(lblKpiLow);
+            pnlLow.Controls.Add(label6);
+            pnlLow.Location = new Point(468, 345);
+            pnlLow.Name = "pnlLow";
+            pnlLow.Size = new Size(280, 100);
+            pnlLow.TabIndex = 28;
+            // 
+            // lblKpiLow
+            // 
+            lblKpiLow.AutoSize = true;
+            lblKpiLow.Font = new Font("Segoe UI", 24F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblKpiLow.ForeColor = Color.White;
+            lblKpiLow.Location = new Point(15, 38);
+            lblKpiLow.Name = "lblKpiLow";
+            lblKpiLow.Size = new Size(38, 45);
+            lblKpiLow.TabIndex = 32;
+            lblKpiLow.Text = "0";
+            // 
+            // label6
+            // 
+            label6.AutoSize = true;
+            label6.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label6.ForeColor = Color.Tan;
+            label6.Location = new Point(15, 12);
+            label6.Name = "label6";
+            label6.Size = new Size(115, 15);
+            label6.TabIndex = 31;
+            label6.Text = "LOW-STOCK ITEMS";
+            // 
+            // btnHistory
+            // 
+            btnHistory.FlatAppearance.BorderSize = 0;
+            btnHistory.FlatStyle = FlatStyle.Flat;
+            btnHistory.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnHistory.ForeColor = Color.WhiteSmoke;
+            btnHistory.Location = new Point(468, 461);
+            btnHistory.Name = "btnHistory";
+            btnHistory.Size = new Size(150, 33);
+            btnHistory.TabIndex = 29;
+            btnHistory.Text = "Order History";
+            btnHistory.UseVisualStyleBackColor = true;
+            // 
+            // btnBackup
+            // 
+            btnBackup.FlatAppearance.BorderSize = 0;
+            btnBackup.FlatStyle = FlatStyle.Flat;
+            btnBackup.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnBackup.ForeColor = Color.WhiteSmoke;
+            btnBackup.Location = new Point(614, 461);
+            btnBackup.Name = "btnBackup";
+            btnBackup.Size = new Size(150, 33);
+            btnBackup.TabIndex = 30;
+            btnBackup.Text = "Backup now";
+            btnBackup.UseVisualStyleBackColor = true;
             // 
             // MainDashboard
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(48, 35, 31);
-            ClientSize = new Size(846, 857);
+            ClientSize = new Size(808, 857);
+            Controls.Add(btnBackup);
+            Controls.Add(btnHistory);
+            Controls.Add(pnlLow);
+            Controls.Add(pnlOrders);
+            Controls.Add(pnlSales);
             Controls.Add(btnVoid);
             Controls.Add(dgvToday);
             Controls.Add(label3);
@@ -406,6 +550,12 @@
             ((System.ComponentModel.ISupportInitialize)pictureBox10).EndInit();
             ((System.ComponentModel.ISupportInitialize)dgvLowStock).EndInit();
             ((System.ComponentModel.ISupportInitialize)dgvToday).EndInit();
+            pnlSales.ResumeLayout(false);
+            pnlSales.PerformLayout();
+            pnlOrders.ResumeLayout(false);
+            pnlOrders.PerformLayout();
+            pnlLow.ResumeLayout(false);
+            pnlLow.PerformLayout();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -437,5 +587,16 @@
         private Label label3;
         private DataGridView dgvToday;
         private Button btnVoid;
+        private Panel pnlSales;
+        private Panel pnlOrders;
+        private Panel pnlLow;
+        private Label lblKpiSales;
+        private Label label4;
+        private Label lblKpiOrders;
+        private Label label5;
+        private Label lblKpiLow;
+        private Label label6;
+        private Button btnHistory;
+        private Button btnBackup;
     }
 }
